@@ -39,6 +39,18 @@ function movePlayer() {
     playerPosition.y = Math.max(0, Math.min(maxY, playerPosition.y));
 }
 
+function clearKeys() {
+    Object.keys(keys).forEach(k => keys[k] = false);
+}
+
+// Prompt: Por que al redimensionar la pagina o abrir una ventana mas pequeña el personaje se mueve solo en alguna direccion?
+//         Sabes como lo puedo solucionar?
+window.addEventListener('blur', clearKeys);
+window.addEventListener('resize', clearKeys);
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) clearKeys();
+});
+
 // Cambio 5: Modifique las velocidades de movimiento de Link y de Ganon (El cambio de link esta en la linea 9).
 const enemySpeed = 0.75;
 

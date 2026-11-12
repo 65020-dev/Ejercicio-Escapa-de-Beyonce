@@ -34,9 +34,25 @@ Fecha: 6 de Noviembre del 2026.
         <div id="player" class="character"></div>
         <div id="enemy" class="character"></div>
     </div>
+
+<aside id="settings">
+    <h2>Ajustes</h2>
+
+<label>Velocidad de Link: <span id="player-speed-value">1.75</span>
+    <input type="range" id="player-speed" min="0.5" max="6" step="0.25" value="1.75">
+</label>
+
+<label>Velocidad de Ganon: <span id="enemy-speed-value">0.75</span>
+    <input type="range" id="enemy-speed" min="0.25" max="3" step="0.25" value="0.75">
+</label>
+
+    <label>Dale Zelda, dale ♫ <span id="music-volume-value">0.25</span>
+        <input type="range" id="music-volume" min="0" max="1" step="0.1" value="0.4">
+    </label>
+
+</aside>
 </div>
-
+    <audio id="bg-music" src="musica.mp3" loop></audio>
     <script type="text/javascript" src="app.js"></script>
-
     </body>
         </html>

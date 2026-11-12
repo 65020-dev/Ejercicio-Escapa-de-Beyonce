@@ -6,7 +6,7 @@ let playerPosition = { x:100, y: 100 };
 let enemyPosition = { x:300, y: 300 };
 
 // Cambio 2: Puse un movimiento mas fluido al jugador ademas de que ahora se puede mover con las teclas W, A, S, D.
-const playerSpeed = 1.75;
+let playerSpeed = 1.75;
 const keys = {};
 const controlKeys = [
     'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight',
@@ -52,7 +52,7 @@ document.addEventListener('visibilitychange', () => {
 });
 
 // Cambio 5: Modifique las velocidades de movimiento de Link y de Ganon (El cambio de link esta en la linea 9).
-const enemySpeed = 0.75;
+let enemySpeed = 0.75;
 
 function moveEnemy() {
     
@@ -93,3 +93,29 @@ function gameLoop() {
 }
 
 gameLoop();
+
+function bindSetting(id, onChange) {
+    const input = document.getElementById(id);
+    const label = document.getElementById(id + '-value');
+
+    input.addEventListener('input', () => {
+        if (label) label.textContent = input.value;
+        onChange(input.value);
+    });
+
+    input.addEventListener('change', () => input.blur());
+}
+
+bindSetting('player-speed', v => playerSpeed = Number(v));
+bindSetting('enemy-speed',  v => enemySpeed = Number(v));
+
+const music = document.getElementById('bg-music');
+   music.volume = 0.25;
+
+   function startMusic() {
+       music.play()
+   }
+   window.addEventListener('keydown', startMusic);
+   window.addEventListener('click', startMusic);
+
+   bindSetting('music-volume', v => music.volume = Number(v));

@@ -1,4 +1,4 @@
-/* Cambio 4 (general): Hice la pagina en "Modo Oscuro" y le puse un fondo al area de juego */
+/* Cambio 4 (general): Hice la pagina en "Modo Oscuro" */
 #game-area {
   width: 500px;
   height: 500px;
@@ -42,7 +42,7 @@ h1 {
   align-items: start;
 }
 
-#controls {
+#controls, #settings {
   grid-column: 1;
   justify-self: end; 
   padding: 10px 16px;
@@ -60,6 +60,20 @@ h1 {
   grid-column: 2;
 }
 
+#settings {
+  grid-column: 3;
+  justify-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#settings label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
 /* No se si cuente como cambio o es parte del cambio 3, pero aqui puse los controles dentro de bloques para mejor estetica */
 kbd {
   display: inline-block;
